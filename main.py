@@ -12,8 +12,10 @@ class MyGUI:
     self.label.pack(padx=10, pady=10)
     
     self.textbox = tk.Text(self.root, height=5, font=('Arial', 16))
+    # bind <<KeyPress>>
+    self.textbox.bind("<<KeyPress>>", self.shortcut)
     self.textbox.pack(padx=10, pady=10)
-    #show messagebox
+    
     self.check_state = tk.IntVar()
     self.check = tk.Checkbutton(self.root, text="Show Messagebox", font=('Arial', 16), variable=self.check_state)
     self.check.pack(padx=10, pady=10)
@@ -23,12 +25,12 @@ class MyGUI:
     
     self.root.mainloop()
   def on_click(self):
-    #
     print(self.check_state.get())
-    #show messagebox
     if self.check_state.get() == 0:
       print(self.textbox.get('1.0', tk.END))
     else:
       messagebox.showinfo(title="Message", message=self.textbox.get('1.0', tk.END))
 
+  def shortcut(self, event):
+    print(event)
 MyGUI()
