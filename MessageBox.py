@@ -7,15 +7,6 @@ class MyGUI:
     self.root = tk.Tk() #windom
     self.root.geometry("400x400") #sides of windom
     self.root.title("My First GUI")
-    #--- menu Line ----
-    self.menubar = tk.Menu(self.root)
-    self.filemenu = tk.Menu(self.menubar, tearoff=0)
-    self.filemenu.add_command(label="Close", command=exit)
-    
-    self.menubar.add_cascade(menu=self.filemenu, label="File")
-    self.root.config(menu=self.menubar)
-    #--                --
-
 
     self.label = tk.Label(self.root, text="Your Message", font=('Arial', 18))
     self.label.pack(padx=10, pady=10)
