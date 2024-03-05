@@ -10,7 +10,9 @@ class MyGUI:
     #--- menu Line ----
     self.menubar = tk.Menu(self.root)
     self.filemenu = tk.Menu(self.menubar, tearoff=0)
-    self.filemenu.add_command(label="Close", command=exit)
+    self.filemenu.add_command(label="Close", command=self.on_closing)
+    self.filemenu.add_separator()
+    self.filemenu.add_command(label="Close without Question", command=self.exit)
     
     self.menubar.add_cascade(menu=self.filemenu, label="File")
     self.root.config(menu=self.menubar)
