@@ -12,9 +12,14 @@ class MyGUI:
     self.filemenu = tk.Menu(self.menubar, tearoff=0)
     self.filemenu.add_command(label="Close", command=self.on_closing)
     self.filemenu.add_separator()
-    self.filemenu.add_command(label="Close without Question", command=self.exit)
+    self.filemenu.add_command(label="Close without Question", command=exit)
+
+    self.actionmenu = tk.Menu(self.menubar, tearoff=0)
+    self.actionmenu.add_command(label="Show Messagebox", command=self.on_click)
     
     self.menubar.add_cascade(menu=self.filemenu, label="File")
+    self.menubar.add_cascade(menu=self.actionmenu, label="Action")
+    
     self.root.config(menu=self.menubar)
     #--                --
 
