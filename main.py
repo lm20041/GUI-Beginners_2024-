@@ -22,7 +22,8 @@ class MyGUI:
     
     self.button = tk.Button(self.root, text="Click Me!", font=('Arial', 18), command=self.on_click)
     self.button.pack(padx=10, pady=10)
-    
+
+    self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
     self.root.mainloop()
   def on_click(self):
     print(self.check_state.get())
@@ -36,4 +37,7 @@ class MyGUI:
     print(event.state)
     if event.state == 12 and event.keysym == "Return":
       self.on_click()
+  def on_closing(self):
+    if messagebox.askyesno(title="Quit?", message="Do you really want to quit?"):
+      self.root.destroy()
 MyGUI()
