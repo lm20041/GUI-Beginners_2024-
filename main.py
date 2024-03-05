@@ -1,4 +1,6 @@
 import tkinter as tk
+#messagebox
+from tkinter import messagebox
 
 class MyGUI:
   def __init__(self):
@@ -11,7 +13,7 @@ class MyGUI:
     
     self.textbox = tk.Text(self.root, height=5, font=('Arial', 16))
     self.textbox.pack(padx=10, pady=10)
-    
+    #show messagebox
     self.check_state = tk.IntVar()
     self.check = tk.Checkbutton(self.root, text="Show Messagebox", font=('Arial', 16), variable=self.check_state)
     self.check.pack(padx=10, pady=10)
@@ -21,6 +23,12 @@ class MyGUI:
     
     self.root.mainloop()
   def on_click(self):
-    print("Hello World")
+    #
+    print(self.check_state.get())
+    #show messagebox
+    if self.check_state.get() == 0:
+      print(self.textbox.get('1.0', tk.END))
+    else:
+      messagebox.showinfo(title="Message", message=self.textbox.get('1.0', tk.END))
 
 MyGUI()
