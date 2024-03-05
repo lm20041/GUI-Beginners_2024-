@@ -39,6 +39,11 @@ class MyGUI:
     self.button = tk.Button(self.root, text="Click Me!", font=('Arial', 18), command=self.on_click)
     self.button.pack(padx=10, pady=10)
 
+    #--------- clearbtn ---------
+    self.clearbtn = tk.Button(self.root, text="Clear", font=('Arial', 18), command=self.clear)
+    self.clearbtn.pack(padx=10, pady=10)
+    #---------          ---------
+
     self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
     self.root.mainloop()
   def on_click(self):
@@ -56,4 +61,7 @@ class MyGUI:
   def on_closing(self):
     if messagebox.askyesno(title="Quit?", message="Do you really want to quit?"):
       self.root.destroy()
+
+  def clear(self):
+    self.textbox.delete('1.0', tk.END)
 MyGUI()
